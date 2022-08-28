@@ -4,7 +4,7 @@
  *
  *   Copyright (C) 2020  Renzo Davoli <renzo@cs.unibo.it> VirtualSquare team.
  *
- * SPDX-License-Identifier: GPL-2.0-only
+ * SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only
  *
  * ioth_picox is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,6 +27,7 @@
 #include <picoxnet.h>
 #include <stdarg.h>
 NLINLINE_LIBMULTI(picox_)
+const char *ioth_picox_license = "SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only";
 
 static typeof(getstackdata_prototype) *getstackdata;
 
