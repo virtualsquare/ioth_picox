@@ -42,10 +42,12 @@ static int picox_iplink_ifadd(struct picox *stackdata, const char *ifvnl) {
 		char ifname[ifnamelen + 1];
 		const char *ifacevnl = colonmark + 1;
 		snprintf(ifname, ifnamelen + 1, "%.*s", ifnamelen, ifvnl);
-		return picox_iplink_add(stackdata, ifname, -1, "vde", ifacevnl);
+		return picox_iplink_add(stackdata, ifname, -1, "vde",
+				nl_iplink_strdata(IFLA_VDE_VNL, ifacevnl));
 	} else
 		/* no if name */
-		return picox_iplink_add(stackdata, NULL, -1, "vde", ifvnl);
+		return picox_iplink_add(stackdata, NULL, -1, "vde",
+				nl_iplink_strdata(IFLA_VDE_VNL, ifvnl));
 }
 
 void *ioth_picox_newstack(const char *vnlv[], const char *options,
